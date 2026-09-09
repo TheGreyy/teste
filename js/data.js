@@ -5,11 +5,40 @@ export const benefits = [
 ];
 
 export const portfolio = [
-  { title: "Tribunal Gamer", category: "Quadro autoral", image: "./portfolio/tribunal-gamer.png", url: "https://www.instagram.com/p/DbdTB5DO1AM/" },
-  { title: "Loading Gaming", category: "Identidade de conteúdo", image: "./portfolio/loading-gaming.png", url: "https://www.instagram.com/p/DblOHkxuLwi/" },
-  { title: "Humor gamer", category: "Conteúdo de comunidade", image: "./portfolio/meme-gamer.png", url: "https://www.instagram.com/p/DbbSCj0uguY/" },
-  { title: "FNAF × Fortnite", category: "Notícia quente", image: "./portfolio/fnaf-fortnite.png", url: "https://www.instagram.com/p/DcUfWRCFCAs/" },
-  { title: "Marvel's Wolverine", category: "Notícia gamer", image: "./portfolio/wolverine.png", url: "https://www.instagram.com/p/Db_J3BbOpyL/" },
+  {
+    title: "Tribunal Gamer",
+    category: "Quadro autoral",
+    image: "portfolio/tribunal-gamer.png",
+    url: "https://www.instagram.com/p/DbdTB5DO1AM/"
+  },
+
+  {
+    title: "Loading Gaming",
+    category: "Identidade de conteúdo",
+    image: "portfolio/loading-gaming.png",
+    url: "https://www.instagram.com/p/Db1OHkxxLwi/"
+  },
+
+  {
+    title: "Humor gamer",
+    category: "Conteúdo de comunidade",
+    image: "portfolio/meme-gamer.png",
+    url: "https://www.instagram.com/p/DbbSCj0uguY/"
+  },
+
+  {
+    title: "FNAF × Fortnite",
+    category: "Notícia quente",
+    image: "portfolio/fnaf-fortnite.png",
+    url: "https://www.instagram.com/p/DcUfWRCFCAs/"
+  },
+
+  {
+    title: "Marvel's Wolverine",
+    category: "Notícia gamer",
+    image: "portfolio/wolverine.png",
+    url: "https://www.instagram.com/p/Db_J3BbOpyL/"
+  }
 ];
 
 export const plans = [
