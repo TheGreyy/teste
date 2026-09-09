@@ -20,18 +20,61 @@ function renderBenefits() {
 }
 
 function renderPortfolio() {
-  document.querySelector("#portfolio-grid").innerHTML = portfolio.map((item, index) => `
-    <a class="work-card work-${index + 1}" href="${item.url}" target="_blank" rel="noreferrer" aria-label="Ver ${item.title} no Instagram">
-      <img src="${item.image}" alt="Arte de ${item.title} produzida pela HUC Studios" loading="lazy" />
-      <div class="portfolio-placeholder" aria-hidden="true">${item.title}<br><small>adicione a imagem em /portfolio</small></div>
-      <div class="work-overlay"><span>${item.category}</span><h3>${item.title}</h3><b>↗</b></div>
-    </a>
-  `).join("");
+  document.querySelector("#portfolio-grid").innerHTML = portfolio
+    .map(
+      (item, index) => `
+        <a
+          class="work-card work-${index + 1}"
+          href="${item.url}"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Ver ${item.title} no Instagram"
+        >
+          <img
+            src="${item.image}"
+            alt="Arte de ${item.title} produzida pela HUC Studios"
+            loading="lazy"
+          />
+
+          <div class="portfolio-placeholder" aria-hidden="true">
+            ${item.title}
+            <small>Adicione a imagem em /portfolio/</small>
+          </div>
+
+          <div class="work-overlay">
+            <span>${item.category}</span>
+            <h3>${item.title}</h3>
+            <b>↗</b>
+          </div>
+        </a>
+      `
+    )
+    .join("");
 
   document.querySelectorAll(".work-card img").forEach((image) => {
     const placeholder = image.nextElementSibling;
-    image.addEventListener("load", () => { placeholder.hidden = true; });
-    image.addEventListener("error", () => { image.classList.add("is-missing"); placeholder.hidden = false; });
+
+    const imageLoaded = () => {
+      image.classList.remove("is-missing");
+      placeholder.hidden = true;
+    };
+
+    const imageFailed = () => {
+      image.classList.add("is-missing");
+      placeholder.hidden = false;
+    };
+
+    image.addEventListener("load", imageLoaded);
+    image.addEventListener("error", imageFailed);
+
+    // Importante: verifica se já carregou antes do listener
+    if (image.complete) {
+      if (image.naturalWidth > 0) {
+        imageLoaded();
+      } else {
+        imageFailed();
+      }
+    }
   });
 }
 
